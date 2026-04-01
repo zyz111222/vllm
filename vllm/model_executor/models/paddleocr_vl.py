@@ -1231,15 +1231,51 @@ class PaddleOCRVLForConditionalGeneration(nn.Module, SupportsMultiModal, Support
         )
         return vision_outputs
 
+    def encode_images(
+        self, pixel_values: Sequence[torch.Tensor], image_grid_thw: torch.Tensor
+    ) -> tuple[torch.Tensor, ...]:
+        if len(pixel_values) == 0:
+            return ()
+
+        image_grid_hws = [tuple(grid.tolist()) for grid in image_grid_thw]
+        pixel_values = [pixel.type(self.visual.dtype) for pixel in pixel_values]
+
+        # Concatenate patchified images into a single variable-length vision
+        # batch, then split the encoder outputs back per image.
+        flat_pixel_values = torch.cat(pixel_values, dim=0)
+
+        cu_seqlens = [0]
+        for grid_thw in image_grid_hws:
+            cu_seqlens.append(cu_seqlens[-1] + np.prod(grid_thw))
+
+        # SiglipVisionEmbeddings only checks that position_ids is present for
+        # 5D inputs; the values are not consumed in the current path.
+        position_ids = torch.zeros(
+            flat_pixel_values.shape[0],
+            dtype=torch.int32,
+            device=flat_pixel_values.device,
+        )
+        cu_seqlens_tensor = torch.tensor(
+            cu_seqlens, dtype=torch.int32, device=flat_pixel_values.device
+        )
+
+        vision_outputs = self.visual(
+            pixel_values=flat_pixel_values,
+            image_grid_thw=image_grid_hws,
+            position_ids=position_ids,
+            interpolate_pos_encoding=True,
+            cu_seqlens=cu_seqlens_tensor,
+        ).squeeze(0)
+
+        split_sizes = [int(np.prod(grid_thw)) for grid_thw in image_grid_hws]
+        return tuple(vision_outputs.split(split_sizes, dim=0))
+
     def _process_image_input(
         self, image_input: PaddleOCRImagePixelInputs
     ) -> MultiModalEmbeddings:
         pixel_values = image_input.pixel_values
         image_grid_thw = image_input.image_grid_thw
-        vision_outputs = tuple(
-            self.encode_image(pixel, grid).squeeze(0)
-            for pixel, grid in zip(pixel_values, image_grid_thw)
-        )
+        vision_outputs = self.encode_images(pixel_values, image_grid_thw)
         image_embeds = self.mlp_AR(vision_outputs, image_grid_thw)
         return image_embeds
 
