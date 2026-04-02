@@ -15,6 +15,8 @@
 # limitations under the License.
 
 import math
+import os
+import time
 from collections.abc import Iterable, Mapping, Sequence
 from functools import partial
 from typing import Annotated, Literal
@@ -36,6 +38,7 @@ from vllm.config.multimodal import BaseDummyOptions
 from vllm.distributed import parallel_state
 from vllm.distributed import utils as dist_utils
 from vllm.inputs import MultiModalDataDict
+from vllm.logger import init_logger
 from vllm.model_executor.layers.attention import (
     MMEncoderAttention,
 )
@@ -85,6 +88,23 @@ from .utils import (
     maybe_prefix,
 )
 from .vision import get_vit_attn_backend
+
+logger = init_logger(__name__)
+_PADDLEOCRVL_PROFILE_MM = os.getenv("VLLM_PROFILE_PADDLEOCRVL_MM", "0") == "1"
+
+
+def _sync_device(device: torch.device) -> None:
+    if device.type == "cuda":
+        torch.cuda.synchronize(device)
+    elif device.type == "xpu" and hasattr(torch, "xpu"):
+        torch.xpu.synchronize(device)
+    elif device.type == "npu" and hasattr(torch, "npu"):
+        torch.npu.synchronize(device)
+
+
+def _now_ms(device: torch.device) -> float:
+    _sync_device(device)
+    return time.perf_counter() * 1000.0
 
 
 def smart_resize(
@@ -1239,10 +1259,15 @@ class PaddleOCRVLForConditionalGeneration(nn.Module, SupportsMultiModal, Support
 
         image_grid_hws = [tuple(grid.tolist()) for grid in image_grid_thw]
         pixel_values = [pixel.type(self.visual.dtype) for pixel in pixel_values]
+        profile_mm = _PADDLEOCRVL_PROFILE_MM
+        if profile_mm:
+            t_cat_start = _now_ms(pixel_values[0].device)
 
         # Concatenate patchified images into a single variable-length vision
         # batch, then split the encoder outputs back per image.
         flat_pixel_values = torch.cat(pixel_values, dim=0)
+        if profile_mm:
+            t_cat_end = _now_ms(flat_pixel_values.device)
 
         cu_seqlens = [0]
         for grid_thw in image_grid_hws:
@@ -1259,6 +1284,8 @@ class PaddleOCRVLForConditionalGeneration(nn.Module, SupportsMultiModal, Support
             cu_seqlens, dtype=torch.int32, device=flat_pixel_values.device
         )
 
+        if profile_mm:
+            t_visual_start = _now_ms(flat_pixel_values.device)
         vision_outputs = self.visual(
             pixel_values=flat_pixel_values,
             image_grid_thw=image_grid_hws,
@@ -1266,6 +1293,16 @@ class PaddleOCRVLForConditionalGeneration(nn.Module, SupportsMultiModal, Support
             interpolate_pos_encoding=True,
             cu_seqlens=cu_seqlens_tensor,
         ).squeeze(0)
+        if profile_mm:
+            t_visual_end = _now_ms(flat_pixel_values.device)
+            logger.info(
+                "PaddleOCRVL mm_profile detail num_images=%d flat_patches=%d "
+                "cat_ms=%.3f visual_ms=%.3f",
+                len(pixel_values),
+                flat_pixel_values.shape[0],
+                t_cat_end - t_cat_start,
+                t_visual_end - t_visual_start,
+            )
 
         split_sizes = [int(np.prod(grid_thw)) for grid_thw in image_grid_hws]
         return tuple(vision_outputs.split(split_sizes, dim=0))
@@ -1275,8 +1312,25 @@ class PaddleOCRVLForConditionalGeneration(nn.Module, SupportsMultiModal, Support
     ) -> MultiModalEmbeddings:
         pixel_values = image_input.pixel_values
         image_grid_thw = image_input.image_grid_thw
+        if _PADDLEOCRVL_PROFILE_MM:
+            num_images = len(pixel_values)
+            total_patches = sum(int(np.prod(grid.tolist())) for grid in image_grid_thw)
+            t0 = _now_ms(pixel_values[0].device)
         vision_outputs = self.encode_images(pixel_values, image_grid_thw)
+        if _PADDLEOCRVL_PROFILE_MM:
+            t1 = _now_ms(pixel_values[0].device)
         image_embeds = self.mlp_AR(vision_outputs, image_grid_thw)
+        if _PADDLEOCRVL_PROFILE_MM:
+            t2 = _now_ms(pixel_values[0].device)
+            logger.info(
+                "PaddleOCRVL mm_profile num_images=%d total_patches=%d "
+                "vision_ms=%.3f projector_ms=%.3f total_ms=%.3f",
+                num_images,
+                total_patches,
+                t1 - t0,
+                t2 - t1,
+                t2 - t0,
+            )
         return image_embeds
 
     def embed_multimodal(self, **kwargs) -> MultiModalEmbeddings:
