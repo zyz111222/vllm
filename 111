@@ -1,72 +1,88 @@
-  127.0.0.1:52810 - "POST /v1/chat/completions HTTP/1.1" 200 OK
-(APIServer pid=56508) INFO:     127.0.0.1:52872 - "POST /v1/chat/completions HTTP/1.1" 200 OK
-(APIServer pid=56508) INFO:     127.0.0.1:52786 - "POST /v1/chat/completions HTTP/1.1" 200 OK
-(APIServer pid=56508) INFO 04-02 16:08:17 [loggers.py:259] Engine 000: Avg prompt throughput: 929.0 tokens/s, Avg generation throughput: 346.2 tokens/s, Running: 1 reqs, Waiting: 0 reqs, GPU KV cache usage: 0.1%, Prefix cache hit rate: 0.0%
-(APIServer pid=56508) INFO:     127.0.0.1:52770 - "POST /v1/chat/completions HTTP/1.1" 200 OK
-(EngineCore_DP0 pid=56628) INFO 04-02 16:08:23 [paddleocr_vl.py:1418] PaddleOCRVL mm_profile detail num_images=1 flat_patches=940 cat_ms=0.144 visual_ms=145.325
-(EngineCore_DP0 pid=56628) INFO 04-02 16:08:23 [paddleocr_vl.py:1445] PaddleOCRVL mm_profile num_images=1 total_patches=940 vision_ms=146.317 projector_ms=1.924 total_ms=148.241
-(EngineCore_DP0 pid=56628) INFO 04-02 16:08:23 [paddleocr_vl.py:1418] PaddleOCRVL mm_profile detail num_images=1 flat_patches=912 cat_ms=0.223 visual_ms=125.861
-(EngineCore_DP0 pid=56628) INFO 04-02 16:08:23 [paddleocr_vl.py:1445] PaddleOCRVL mm_profile num_images=1 total_patches=912 vision_ms=126.953 projector_ms=1.898 total_ms=128.851
-(EngineCore_DP0 pid=56628) INFO 04-02 16:08:24 [paddleocr_vl.py:1418] PaddleOCRVL mm_profile detail num_images=6 flat_patches=5340 cat_ms=0.291 visual_ms=719.410
-(EngineCore_DP0 pid=56628) INFO 04-02 16:08:24 [paddleocr_vl.py:1445] PaddleOCRVL mm_profile num_images=6 total_patches=5340 vision_ms=720.851 projector_ms=7.030 total_ms=727.881
-(EngineCore_DP0 pid=56628) INFO 04-02 16:08:25 [paddleocr_vl.py:1418] PaddleOCRVL mm_profile detail num_images=9 flat_patches=7768 cat_ms=0.335 visual_ms=1096.556
-(EngineCore_DP0 pid=56628) INFO 04-02 16:08:25 [paddleocr_vl.py:1445] PaddleOCRVL mm_profile num_images=9 total_patches=7768 vision_ms=1098.156 projector_ms=11.818 total_ms=1109.975
-(EngineCore_DP0 pid=56628) INFO 04-02 16:08:26 [paddleocr_vl.py:1418] PaddleOCRVL mm_profile detail num_images=9 flat_patches=7660 cat_ms=0.341 visual_ms=1105.840
-(EngineCore_DP0 pid=56628) INFO 04-02 16:08:26 [paddleocr_vl.py:1445] PaddleOCRVL mm_profile num_images=9 total_patches=7660 vision_ms=1107.451 projector_ms=13.090 total_ms=1120.541
-(APIServer pid=56508) INFO 04-02 16:08:27 [loggers.py:259] Engine 000: Avg prompt throughput: 372.3 tokens/s, Avg generation throughput: 34.1 tokens/s, Running: 26 reqs, Waiting: 83 reqs, GPU KV cache usage: 0.3%, Prefix cache hit rate: 0.0%
-(EngineCore_DP0 pid=56628) INFO 04-02 16:08:28 [paddleocr_vl.py:1418] PaddleOCRVL mm_profile detail num_images=10 flat_patches=8244 cat_ms=0.411 visual_ms=1146.947
-(EngineCore_DP0 pid=56628) INFO 04-02 16:08:28 [paddleocr_vl.py:1445] PaddleOCRVL mm_profile num_images=10 total_patches=8244 vision_ms=1148.643 projector_ms=12.510 total_ms=1161.153
-(EngineCore_DP0 pid=56628) INFO 04-02 16:08:29 [paddleocr_vl.py:1418] PaddleOCRVL mm_profile detail num_images=9 flat_patches=7608 cat_ms=0.371 visual_ms=1004.987
-(EngineCore_DP0 pid=56628) INFO 04-02 16:08:29 [paddleocr_vl.py:1445] PaddleOCRVL mm_profile num_images=9 total_patches=7608 vision_ms=1006.669 projector_ms=11.928 total_ms=1018.598
-(EngineCore_DP0 pid=56628) INFO 04-02 16:08:30 [paddleocr_vl.py:1418] PaddleOCRVL mm_profile detail num_images=8 flat_patches=7032 cat_ms=0.336 visual_ms=962.755
-(EngineCore_DP0 pid=56628) INFO 04-02 16:08:30 [paddleocr_vl.py:1445] PaddleOCRVL mm_profile num_images=8 total_patches=7032 vision_ms=964.258 projector_ms=11.091 total_ms=975.349
-(EngineCore_DP0 pid=56628) INFO 04-02 16:08:31 [paddleocr_vl.py:1418] PaddleOCRVL mm_profile detail num_images=9 flat_patches=7536 cat_ms=0.324 visual_ms=1060.227
-(EngineCore_DP0 pid=56628) INFO 04-02 16:08:31 [paddleocr_vl.py:1445] PaddleOCRVL mm_profile num_images=9 total_patches=7536 vision_ms=1061.712 projector_ms=60.437 total_ms=1122.148
-(EngineCore_DP0 pid=56628) INFO 04-02 16:08:33 [paddleocr_vl.py:1418] PaddleOCRVL mm_profile detail num_images=9 flat_patches=7880 cat_ms=0.317 visual_ms=1135.892
-(EngineCore_DP0 pid=56628) INFO 04-02 16:08:33 [paddleocr_vl.py:1445] PaddleOCRVL mm_profile num_images=9 total_patches=7880 vision_ms=1137.385 projector_ms=12.691 total_ms=1150.077
-(APIServer pid=56508) INFO:     127.0.0.1:45364 - "POST /v1/chat/completions HTTP/1.1" 200 OK
-(APIServer pid=56508) INFO:     127.0.0.1:45412 - "POST /v1/chat/completions HTTP/1.1" 200 OK
-(EngineCore_DP0 pid=56628) INFO 04-02 16:08:34 [paddleocr_vl.py:1418] PaddleOCRVL mm_profile detail num_images=9 flat_patches=7568 cat_ms=0.330 visual_ms=1017.060
-(EngineCore_DP0 pid=56628) INFO 04-02 16:08:34 [paddleocr_vl.py:1445] PaddleOCRVL mm_profile num_images=9 total_patches=7568 vision_ms=1018.603 projector_ms=13.136 total_ms=1031.739
-(EngineCore_DP0 pid=56628) INFO 04-02 16:08:35 [paddleocr_vl.py:1418] PaddleOCRVL mm_profile detail num_images=8 flat_patches=6984 cat_ms=0.297 visual_ms=974.125
-(EngineCore_DP0 pid=56628) INFO 04-02 16:08:35 [paddleocr_vl.py:1445] PaddleOCRVL mm_profile num_images=8 total_patches=6984 vision_ms=975.569 projector_ms=11.119 total_ms=986.688
-(EngineCore_DP0 pid=56628) INFO 04-02 16:08:37 [paddleocr_vl.py:1418] PaddleOCRVL mm_profile detail num_images=9 flat_patches=7740 cat_ms=0.327 visual_ms=1067.227
-(EngineCore_DP0 pid=56628) INFO 04-02 16:08:37 [paddleocr_vl.py:1445] PaddleOCRVL mm_profile num_images=9 total_patches=7740 vision_ms=1069.140 projector_ms=12.916 total_ms=1082.056
-(APIServer pid=56508) INFO:     127.0.0.1:52770 - "POST /v1/chat/completions HTTP/1.1" 200 OK
-(APIServer pid=56508) INFO:     127.0.0.1:45368 - "POST /v1/chat/completions HTTP/1.1" 200 OK
-(APIServer pid=56508) INFO:     127.0.0.1:45372 - "POST /v1/chat/completions HTTP/1.1" 200 OK
-(APIServer pid=56508) INFO:     127.0.0.1:45394 - "POST /v1/chat/completions HTTP/1.1" 200 OK
-(APIServer pid=56508) INFO 04-02 16:08:37 [loggers.py:259] Engine 000: Avg prompt throughput: 1607.4 tokens/s, Avg generation throughput: 44.7 tokens/s, Running: 91 reqs, Waiting: 105 reqs, GPU KV cache usage: 1.2%, Prefix cache hit rate: 0.0%
-(EngineCore_DP0 pid=56628) INFO 04-02 16:08:38 [paddleocr_vl.py:1418] PaddleOCRVL mm_profile detail num_images=8 flat_patches=6952 cat_ms=0.328 visual_ms=969.135
-(EngineCore_DP0 pid=56628) INFO 04-02 16:08:38 [paddleocr_vl.py:1445] PaddleOCRVL mm_profile num_images=8 total_patches=6952 vision_ms=970.758 projector_ms=11.834 total_ms=982.592
-(EngineCore_DP0 pid=56628) INFO 04-02 16:08:39 [paddleocr_vl.py:1418] PaddleOCRVL mm_profile detail num_images=9 flat_patches=7732 cat_ms=0.330 visual_ms=1065.188
-(EngineCore_DP0 pid=56628) INFO 04-02 16:08:39 [paddleocr_vl.py:1445] PaddleOCRVL mm_profile num_images=9 total_patches=7732 vision_ms=1066.748 projector_ms=60.122 total_ms=1126.870
-(APIServer pid=56508) INFO:     127.0.0.1:45400 - "POST /v1/chat/completions HTTP/1.1" 200 OK
-(APIServer pid=56508) INFO:     127.0.0.1:45416 - "POST /v1/chat/completions HTTP/1.1" 200 OK
-(APIServer pid=56508) INFO:     127.0.0.1:45502 - "POST /v1/chat/completions HTTP/1.1" 200 OK
-(EngineCore_DP0 pid=56628) INFO 04-02 16:08:40 [paddleocr_vl.py:1418] PaddleOCRVL mm_profile detail num_images=8 flat_patches=6992 cat_ms=0.349 visual_ms=967.056
-(EngineCore_DP0 pid=56628) INFO 04-02 16:08:40 [paddleocr_vl.py:1445] PaddleOCRVL mm_profile num_images=8 total_patches=6992 vision_ms=968.724 projector_ms=9.782 total_ms=978.505
-(APIServer pid=56508) INFO:     127.0.0.1:45408 - "POST /v1/chat/completions HTTP/1.1" 200 OK
-(APIServer pid=56508) INFO:     127.0.0.1:45410 - "POST /v1/chat/completions HTTP/1.1" 200 OK
-(APIServer pid=56508) INFO:     127.0.0.1:45424 - "POST /v1/chat/completions HTTP/1.1" 200 OK
-(APIServer pid=56508) INFO:     127.0.0.1:45418 - "POST /v1/chat/completions HTTP/1.1" 200 OK
-(APIServer pid=56508) INFO:     127.0.0.1:45478 - "POST /v1/chat/completions HTTP/1.1" 200 OK
-(APIServer pid=56508) INFO:     127.0.0.1:45498 - "POST /v1/chat/completions HTTP/1.1" 200 OK
-(APIServer pid=56508) INFO:     127.0.0.1:45528 - "POST /v1/chat/completions HTTP/1.1" 200 OK
-(EngineCore_DP0 pid=56628) INFO 04-02 16:08:42 [paddleocr_vl.py:1418] PaddleOCRVL mm_profile detail num_images=9 flat_patches=7588 cat_ms=0.362 visual_ms=1002.446
-(EngineCore_DP0 pid=56628) INFO 04-02 16:08:42 [paddleocr_vl.py:1445] PaddleOCRVL mm_profile num_images=9 total_patches=7588 vision_ms=1004.135 projector_ms=11.917 total_ms=1016.052
-(APIServer pid=56508) INFO:     127.0.0.1:45420 - "POST /v1/chat/completions HTTP/1.1" 200 OK
-(APIServer pid=56508) INFO:     127.0.0.1:45442 - "POST /v1/chat/completions HTTP/1.1" 200 OK
-(APIServer pid=56508) INFO:     127.0.0.1:45490 - "POST /v1/chat/completions HTTP/1.1" 200 OK
-(EngineCore_DP0 pid=56628) INFO 04-02 16:08:43 [paddleocr_vl.py:1418] PaddleOCRVL mm_profile detail num_images=8 flat_patches=7024 cat_ms=0.320 visual_ms=1044.763
-(EngineCore_DP0 pid=56628) INFO 04-02 16:08:43 [paddleocr_vl.py:1445] PaddleOCRVL mm_profile num_images=8 total_patches=7024 vision_ms=1046.393 projector_ms=11.142 total_ms=1057.534
-(APIServer pid=56508) INFO:     127.0.0.1:45436 - "POST /v1/chat/completions HTTP/1.1" 200 OK
-(APIServer pid=56508) INFO:     127.0.0.1:45456 - "POST /v1/chat/completions HTTP/1.1" 200 OK
-(APIServer pid=56508) INFO:     127.0.0.1:45482 - "POST /v1/chat/completions HTTP/1.1" 200 OK
-(APIServer pid=56508) INFO:     127.0.0.1:45538 - "POST /v1/chat/completions HTTP/1.1" 200 OK
-(EngineCore_DP0 pid=56628) INFO 04-02 16:08:44 [paddleocr_vl.py:1418] PaddleOCRVL mm_profile detail num_images=8 flat_patches=7160 cat_ms=0.325 visual_ms=982.694
-(EngineCore_DP0 pid=56628) INFO 04-02 16:08:44 [paddleocr_vl.py:1445] PaddleOCRVL mm_profile num_images=8 total_patches=7160 vision_ms=984.399 projector_ms=11.438 total_ms=995.838
-(APIServer pid=56508) INFO:     127.0.0.1:45388 - "POST /v1/chat/completions HTTP/1.1" 200 OK
-(APIServer pid=56508) INFO:     127.0.0.1:45414 - "POST /v1/chat/completions HTTP/1.1" 200 OK
-(APIServer pid=56508) INFO:     127.0.0.1:45430 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+FO:     127.0.0.1:57294 - "POST /v1/chat/completions HTTP/1.1" 500 Internal Server Error
+(APIServer pid=60904) INFO:     127.0.0.1:57296 - "POST /v1/chat/completions HTTP/1.1" 500 Internal Server Error
+(APIServer pid=60904) INFO:     127.0.0.1:57298 - "POST /v1/chat/completions HTTP/1.1" 500 Internal Server Error
+(APIServer pid=60904) INFO:     127.0.0.1:57260 - "POST /v1/chat/completions HTTP/1.1" 500 Internal Server Error
+(EngineCore_DP0 pid=61015) Process EngineCore_DP0:
+(EngineCore_DP0 pid=61015) Traceback (most recent call last):
+(EngineCore_DP0 pid=61015)   File "/usr/local/python3.11.10/lib/python3.11/multiprocessing/process.py", line 314, in _bootstrap
+(EngineCore_DP0 pid=61015)     self.run()
+(EngineCore_DP0 pid=61015)   File "/usr/local/python3.11.10/lib/python3.11/multiprocessing/process.py", line 108, in run
+(EngineCore_DP0 pid=61015)     self._target(*self._args, **self._kwargs)
+(EngineCore_DP0 pid=61015)   File "/home/z00939677/paddleocrvl/vllm/v1/engine/core.py", line 1104, in run_engine_core
+(EngineCore_DP0 pid=61015)     raise e
+(EngineCore_DP0 pid=61015)   File "/home/z00939677/paddleocrvl/vllm/v1/engine/core.py", line 1093, in run_engine_core
+(EngineCore_DP0 pid=61015)     engine_core.run_busy_loop()
+(EngineCore_DP0 pid=61015)   File "/home/z00939677/paddleocrvl/vllm/v1/engine/core.py", line 1128, in run_busy_loop
+(EngineCore_DP0 pid=61015)     self._process_engine_step()
+(EngineCore_DP0 pid=61015)   File "/home/z00939677/paddleocrvl/vllm/v1/engine/core.py", line 1165, in _process_engine_step
+(EngineCore_DP0 pid=61015)     outputs, model_executed = self.step_fn()
+(EngineCore_DP0 pid=61015)                               ^^^^^^^^^^^^^^
+(EngineCore_DP0 pid=61015)   File "/home/z00939677/paddleocrvl/vllm/v1/engine/core.py", line 501, in step_with_batch_queue
+(EngineCore_DP0 pid=61015)     exec_model_fut.result()
+(EngineCore_DP0 pid=61015)   File "/usr/local/python3.11.10/lib/python3.11/concurrent/futures/_base.py", line 449, in result
+(EngineCore_DP0 pid=61015)     return self.__get_result()
+(EngineCore_DP0 pid=61015)            ^^^^^^^^^^^^^^^^^^^
+(EngineCore_DP0 pid=61015)   File "/usr/local/python3.11.10/lib/python3.11/concurrent/futures/_base.py", line 401, in __get_result
+(EngineCore_DP0 pid=61015)     raise self._exception
+(EngineCore_DP0 pid=61015)   File "/home/z00939677/paddleocrvl/vllm/v1/executor/uniproc_executor.py", line 80, in collective_rpc
+(EngineCore_DP0 pid=61015)     result = run_method(self.driver_worker, method, args, kwargs)
+(EngineCore_DP0 pid=61015)              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore_DP0 pid=61015)   File "/home/z00939677/paddleocrvl/vllm/v1/serial_utils.py", line 459, in run_method
+(EngineCore_DP0 pid=61015)     return func(*args, **kwargs)
+(EngineCore_DP0 pid=61015)            ^^^^^^^^^^^^^^^^^^^^^
+(EngineCore_DP0 pid=61015)   File "/home/z00939677/paddleocrvl/vllm/v1/worker/worker_base.py", line 365, in execute_model
+(EngineCore_DP0 pid=61015)     return self.worker.execute_model(scheduler_output)
+(EngineCore_DP0 pid=61015)            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore_DP0 pid=61015)   File "/home/z00939677/paddleocrvl/vllm_ascend/worker/worker.py", line 389, in execute_model
+(EngineCore_DP0 pid=61015)     output = self.model_runner.execute_model(scheduler_output, intermediate_tensors)
+(EngineCore_DP0 pid=61015)              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore_DP0 pid=61015)   File "/usr/local/python3.11.10/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 120, in decorate_context
+(EngineCore_DP0 pid=61015)     return func(*args, **kwargs)
+(EngineCore_DP0 pid=61015)            ^^^^^^^^^^^^^^^^^^^^^
+(EngineCore_DP0 pid=61015)   File "/home/z00939677/paddleocrvl/vllm_ascend/worker/model_runner_v1.py", line 1416, in execute_model
+(EngineCore_DP0 pid=61015)     hidden_states = self._model_forward(
+(EngineCore_DP0 pid=61015)                     ^^^^^^^^^^^^^^^^^^^^
+(EngineCore_DP0 pid=61015)   File "/home/z00939677/paddleocrvl/vllm_ascend/worker/model_runner_v1.py", line 1815, in _model_forward
+(EngineCore_DP0 pid=61015)     hidden_states = self.model(
+(EngineCore_DP0 pid=61015)                     ^^^^^^^^^^^
+(EngineCore_DP0 pid=61015)   File "/home/z00939677/paddleocrvl/vllm_ascend/compilation/acl_graph.py", line 199, in __call__
+(EngineCore_DP0 pid=61015)     torch.npu.current_stream().synchronize()
+(EngineCore_DP0 pid=61015)   File "/usr/local/python3.11.10/lib/python3.11/site-packages/torch_npu/npu/streams.py", line 85, in synchronize
+(EngineCore_DP0 pid=61015)     super(Stream, self).synchronize()
+(EngineCore_DP0 pid=61015) RuntimeError: synchronize:build/CMakeFiles/torch_npu.dir/compiler_depend.ts:361 NPU function error: c10_npu::acl::AclrtSynchronizeStreamWithTimeout(stream()), error code is 507015
+(EngineCore_DP0 pid=61015) [ERROR] 2026-04-09-19:20:27 (PID:61015, Device:0, RankID:-1) ERR00100 PTA call acl api failed
+(EngineCore_DP0 pid=61015) [Error]: The aicore execution is abnormal. 
+(EngineCore_DP0 pid=61015)         Rectify the fault based on the error information in the ascend log.
+(EngineCore_DP0 pid=61015) EZ9999: Inner Error!
+(EngineCore_DP0 pid=61015) EZ9999[PID: 61015] 2026-04-09-19:20:27.609.548 (EZ9999):  Kernel task happen error, retCode=0x26, [aicore exception].[FUNC:PreCheckTaskErr][FILE:davinci_kernel_task.cc][LINE:1728]
+(EngineCore_DP0 pid=61015)         TraceBack (most recent call last):
+(EngineCore_DP0 pid=61015)        The error from device(0), serial number is 58, there is an error of aicore, core id is 4, error code = 0x800000, dump info: pc start: 0x8001240017cf48c, current: 0x1240017d05e8, vec error info: 0xfd5ea80, mte error info: 0x3033392, ifu error info: 0x1f74fbfee7c80, ccu error info: 0x3f6380000017e61c, cube error info: 0x46, biu error info: 0, aic error mask: 0x65000200d00028c, para base: 0x12c1004a5000, errorStr: The DDR address of the MTE instruction is out of range.[FUNC:PrintCoreErrorInfo][FILE:device_error_core_proc.cc][LINE:215]
+(EngineCore_DP0 pid=61015)        The extend info from device(0), serial number is 58, there is aicore error, core id is 4, aicore int: 0x10, aicore error2: 0, axi clamp ctrl: 0, axi clamp state: 0x1717, biu status0: 0x101d14000000000, biu status1: 0x80000201020000, clk gate mask: 0, dbg addr: 0, ecc en: 0, mte ccu ecc 1bit error: 0x1c80000000000000, vector cube ecc 1bit error: 0, run stall: 0x1, dbg data0: 0, dbg data1: 0, dbg data2: 0, dbg data3: 0, dfx data: 0xff[FUNC:PrintCoreErrorInfo][FILE:device_error_core_proc.cc][LINE:246]
+(EngineCore_DP0 pid=61015)        The error from device(0), serial number is 58, there is an error of aicore, core id is 7, error code = 0x800000, dump info: pc start: 0x8001240017cf48c, current: 0x1240017d05e8, vec error info: 0x1b3c2cfa, mte error info: 0x30633fa, ifu error info: 0x2f879f77e7f80, ccu error info: 0x3f6380000001cf1c, cube error info: 0x46, biu error info: 0, aic error mask: 0x65000200d00028c, para base: 0x12c1004a5000, errorStr: The DDR address of the MTE instruction is out of range.[FUNC:PrintCoreErrorInfo][FILE:device_error_core_proc.cc][LINE:215]
+(EngineCore_DP0 pid=61015)        The extend info from device(0), serial number is 58, there is aicore error, core id is 7, aicore int: 0x10, aicore error2: 0, axi clamp ctrl: 0, axi clamp state: 0x1717, biu status0: 0x101d14000000000, biu status1: 0x80000201020000, clk gate mask: 0, dbg addr: 0, ecc en: 0, mte ccu ecc 1bit error: 0x2f80000000000000, vector cube ecc 1bit error: 0, run stall: 0x1, dbg data0: 0, dbg data1: 0, dbg data2: 0, dbg data3: 0, dfx data: 0xdf[FUNC:PrintCoreErrorInfo][FILE:device_error_core_proc.cc][LINE:246]
+(EngineCore_DP0 pid=61015)        The error from device(0), serial number is 58, there is an error of aicore, core id is 8, error code = 0x800000, dump info: pc start: 0x8001240017cf48c, current: 0x1240017d05e8, vec error info: 0x7fd4fbf, mte error info: 0x305a3fa, ifu error info: 0xfcf33fa1f980, ccu error info: 0x3f6380000055ee1c, cube error info: 0x46, biu error info: 0, aic error mask: 0x65000200d00028c, para base: 0x12c1004a5000, errorStr: The DDR address of the MTE instruction is out of range.[FUNC:PrintCoreErrorInfo][FILE:device_error_core_proc.cc][LINE:215]
+(EngineCore_DP0 pid=61015)        The extend info from device(0), serial number is 58, there is aicore error, core id is 8, aicore int: 0x10, aicore error2: 0, axi clamp ctrl: 0, axi clamp state: 0x1717, biu status0: 0x101d14000000000, biu status1: 0x80000201020000, clk gate mask: 0, dbg addr: 0, ecc en: 0, mte ccu ecc 1bit error: 0x2300000000000000, vector cube ecc 1bit error: 0, run stall: 0x1, dbg data0: 0, dbg data1: 0, dbg data2: 0, dbg data3: 0, dfx data: 0xfc[FUNC:PrintCoreErrorInfo][FILE:device_error_core_proc.cc][LINE:246]
+(EngineCore_DP0 pid=61015)        The dha(mata) info from device(0), dha id is 0, dha status 1 info:0x23[FUNC:ProcessCoreErrorInfo][FILE:device_error_core_proc.cc][LINE:347]
+(EngineCore_DP0 pid=61015)        The dha(mata) info from device(0), dha id is 1, dha status 1 info:0x83[FUNC:ProcessCoreErrorInfo][FILE:device_error_core_proc.cc][LINE:347]
+(EngineCore_DP0 pid=61015)        The device(0), core list[0-2], error code is:[FUNC:PrintCoreInfoErrMsg][FILE:device_error_core_proc.cc][LINE:274]
+(EngineCore_DP0 pid=61015)        coreId( 0):        0x800000            0x800000            0x800000    [FUNC:PrintCoreInfoErrMsg][FILE:device_error_core_proc.cc][LINE:288]
+(EngineCore_DP0 pid=61015)        [AIC_INFO] after execute:args print end[FUNC:GetError][FILE:stream.cc][LINE:1470]
+(EngineCore_DP0 pid=61015)        [DFX_INFO]Aicore kernel execute failed, device_id=0, stream_id=43, report_stream_id=43, task_id=53908, flip_num=5, fault kernel_name=GatherV2_7869a97190b9b4d296d9414a005b954b_high_precision_900015010, fault kernel info ext=none, program id=212, hash=6406798784343964320.[FUNC:GetError][FILE:stream.cc][LINE:1470]
+(EngineCore_DP0 pid=61015)        rtStreamSynchronizeWithTimeout execution failed, reason=aicore exception[FUNC:FuncErrorReason][FILE:error_message_manage.cc][LINE:65]
+(EngineCore_DP0 pid=61015)        synchronize stream with timeout failed, runtime result = 507015[FUNC:ReportCallError][FILE:log_inner.cpp][LINE:148]
+(EngineCore_DP0 pid=61015) 
+(EngineCore_DP0 pid=61015) 
+(EngineCore_DP0 pid=61015) DEVICE[0] PID[61015]: 
+(EngineCore_DP0 pid=61015) EXCEPTION STREAM:
+(EngineCore_DP0 pid=61015)   Exception info:TGID=970010, model id=65535, stream id=43, stream phase=SCHEDULE
+(EngineCore_DP0 pid=61015)   Message info[0]:RTS_HWTS: Aicore exception, slot_id=30, stream_id=43
+(EngineCore_DP0 pid=61015)     Other info[0]:time=2026-04-09-11:20:27.127.121, function=process_hwts_error_exception, line=646, error code=0x26
+[rank0]:[W409 19:20:29.596110420 compiler_depend.ts:595] Warning: NPU warning, error code is 507015[Error]: 
+[Error]: The aicore execution is abnormal. 
+        Rectify the fault based on the error information in the ascend log.
+EE9999: Inner Error!
+EE9999[PID: 61015] 2026-04-09-19:20:29.316.546 (EE9999):  rtDeviceSynchronizeWithTimeout execution failed, reason=aicore exception[FUNC:FuncErrorReason][FILE:error_message_manage.cc][LINE:65]
+        TraceBack (most recent call last):
+       wait for compute device to finish failed, runtime result = 507015.[FUNC:ReportCallError][FILE:log_inner.cpp][LINE:148]
+ (function npuSynchronizeUsedDevices)
 
